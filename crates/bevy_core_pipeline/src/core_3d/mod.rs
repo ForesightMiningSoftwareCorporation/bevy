@@ -291,7 +291,7 @@ pub fn prepare_core_3d_depth_textures(
             .entry(camera.target.clone())
             .or_insert_with(|| {
                 // Default usage required to write to the depth texture
-                let mut usage = TextureUsages::RENDER_ATTACHMENT;
+                let mut usage = TextureUsages::RENDER_ATTACHMENT | TextureUsages::TEXTURE_BINDING;
                 if depth_prepass.is_some() {
                     // Required to read the output of the prepass
                     usage |= TextureUsages::COPY_SRC;
