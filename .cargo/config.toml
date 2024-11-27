@@ -1,0 +1,30 @@
+
+[patch.crates-io.naga]
+git = "https://github.com/ForesightMiningSoftwareCorporation/wgpu"
+rev = "ddbe5e2aba8a406ff2ea0d20f270c08e7c2850c5"
+#path = "../wgpu/naga"
+
+[patch."https://github.com/gfx-rs/naga".naga]
+git = "https://github.com/ForesightMiningSoftwareCorporation/wgpu"
+rev = "ddbe5e2aba8a406ff2ea0d20f270c08e7c2850c5"
+#path = "../wgpu/naga"
+
+[patch.crates-io.wgpu]
+git = "https://github.com/ForesightMiningSoftwareCorporation/wgpu"
+rev = "ddbe5e2aba8a406ff2ea0d20f270c08e7c2850c5"
+#path = "../wgpu/wgpu"
+
+[patch.crates-io.wgpu-types]
+git = "https://github.com/ForesightMiningSoftwareCorporation/wgpu"
+rev = "ddbe5e2aba8a406ff2ea0d20f270c08e7c2850c5"
+#path = "../wgpu/wgpu-types"
+
+[patch.crates-io.naga_oil]
+git = "https://github.com/ForesightMiningSoftwareCorporation/naga_oil"
+rev = "fc434636ba7910f2787565f80446f9c01cf58114"
+#path = "../naga_oil"
+
+[patch.crates-io.metal]
+git = "https://github.com/gfx-rs/metal-rs"
+rev = "ae7030be0edff4cda88ece74137e5bcd28ef48fa"
+#path = "../naga_oil"
