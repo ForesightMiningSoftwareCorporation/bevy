@@ -170,18 +170,17 @@ fn rasterize_cluster(
 }
 
 fn write_visibility_buffer_pixel(x: f32, y: f32, z: f32, packed_ids: u32) {
-    let frag_coord_1d = u32(y * view.viewport.z + x);
-
+    let coord = vec2<u32>(u32(x), u32(y));
 #ifdef MESHLET_VISIBILITY_BUFFER_RASTER_PASS_OUTPUT
     let depth = bitcast<u32>(z);
     let visibility = (u64(depth) << 32u) | u64(packed_ids);
-    atomicMax(&meshlet_visibility_buffer[frag_coord_1d], visibility);
+    imageAtomicMax(meshlet_visibility_buffer, coord, visibility);
 #else ifdef DEPTH_CLAMP_ORTHO
     let depth = bitcast<u32>(1.0 / z);
-    atomicMax(&meshlet_visibility_buffer[frag_coord_1d], depth);
+    imageAtomicMax(meshlet_visibility_buffer, coord, depth);
 #else
     let depth = bitcast<u32>(z);
-    atomicMax(&meshlet_visibility_buffer[frag_coord_1d], depth);
+    imageAtomicMax(meshlet_visibility_buffer, coord, depth);
 #endif
 }
 
